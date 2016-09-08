@@ -1,0 +1,27 @@
+{
+  "name": "babylon-spike",
+  "version": "1.0.0",
+  "description": "[BabylonJS](http://doc.babylonjs.com/) is an open source 3D engine based on webGL and Javascript",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rena-deane/babylon-spike.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rena-deane/babylon-spike/issues"
+  },
+  "homepage": "https://github.com/rena-deane/babylon-spike#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.10.2"
+  }
+}
