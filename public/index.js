@@ -7,7 +7,7 @@ var createScene = function () {
 
     // Setup camera
     var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, BABYLON.Vector3.Zero(), scene);
-    camera.setPosition(new BABYLON.Vector3(-10, 10, 0));
+    camera.setPosition(new BABYLON.Vector3(-15, 15, 0));
     camera.attachControl(canvas, true);
 
     // Lights
@@ -42,7 +42,7 @@ var createScene = function () {
 
         lightSphere1.position = light1.position;
 
-        alpha += 0.01;
+        alpha += 0.008;
     };
 
     return scene;
