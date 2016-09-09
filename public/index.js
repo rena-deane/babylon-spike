@@ -7,28 +7,31 @@ var createScene = function () {
 
     // Setup camera
     var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, BABYLON.Vector3.Zero(), scene);
-    camera.setPosition(new BABYLON.Vector3(-10, 10, 0));
+    camera.setPosition(new BABYLON.Vector3(0, 20, -15));
     camera.attachControl(canvas, true);
 
     // Lights
-    var light0 = new BABYLON.PointLight("Omni0", new BABYLON.Vector3(0, 10, 0), scene);
     var light1 = new BABYLON.PointLight("Omni1", new BABYLON.Vector3(0, -10, 0), scene);
 
+
     var material = new BABYLON.StandardMaterial("kosh", scene);
-    var sphere = BABYLON.Mesh.CreateSphere("Sphere", 16, 3, scene);
+    var sphere = BABYLON.Mesh.CreateSphere("Sphere", 16, 5, scene);
+
+    // Sphere material
+    material.reflectionTexture = new BABYLON.Texture("images/earth.jpg", scene);
+    material.reflectionTexture.coordinatesMode = BABYLON.Texture.SPHERICAL_MODE;
+    sphere.material = material;
+
+    sphere.rotation = new BABYLON.Vector3(0, Math.PI/2, 0);
 
     // Creating light sphere
 
-    var lightSphere1 = BABYLON.Mesh.CreateSphere("Sphere1", 16, 0.5, scene);
-    lightSphere1.diffuseTexture = new BABYLON.Texture("images/earth.jpg", scene);
+    var lightSphere1 = BABYLON.Mesh.CreateSphere("Sphere1", 16, 2, scene);
 
-    // Sphere material
-    material.diffuseColor = new BABYLON.Color3(1, 1, 1);
-    sphere.material = material;
-
-    // Lights colors
-    light1.diffuse = new BABYLON.Color3(0, 1, 0);
-    light1.specular = new BABYLON.Color3(0, 1, 0);
+    material = new BABYLON.StandardMaterial("material01", scene);
+    material.reflectionTexture = new BABYLON.Texture("images/moon.png", scene);
+    material.reflectionTexture.coordinatesMode = BABYLON.Texture.SPHERICAL_MODE;
+    lightSphere1.material = material;
 
     // Animations
     var alpha = 0;
@@ -37,7 +40,7 @@ var createScene = function () {
 
         lightSphere1.position = light1.position;
 
-        alpha += 0.01;
+        alpha += 0.008;
     };
 
     return scene;
