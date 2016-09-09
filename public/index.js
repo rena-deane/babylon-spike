@@ -7,27 +7,29 @@ var createScene = function () {
 
     // Setup camera
     var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, BABYLON.Vector3.Zero(), scene);
-    camera.setPosition(new BABYLON.Vector3(-15, 15, 15));
+    camera.setPosition(new BABYLON.Vector3(0, 20, -15));
     camera.attachControl(canvas, true);
 
     // Lights
     var light1 = new BABYLON.PointLight("Omni1", new BABYLON.Vector3(0, -10, 0), scene);
 
+
     var material = new BABYLON.StandardMaterial("kosh", scene);
     var sphere = BABYLON.Mesh.CreateSphere("Sphere", 16, 5, scene);
 
     // Sphere material
-    material.reflectionTexture = new BABYLON.Texture("images/sun.png", scene);
+    material.reflectionTexture = new BABYLON.Texture("images/earth.jpg", scene);
     material.reflectionTexture.coordinatesMode = BABYLON.Texture.SPHERICAL_MODE;
     sphere.material = material;
 
+    sphere.rotation = new BABYLON.Vector3(0, Math.PI/2, 0);
 
     // Creating light sphere
 
     var lightSphere1 = BABYLON.Mesh.CreateSphere("Sphere1", 16, 2, scene);
 
     material = new BABYLON.StandardMaterial("material01", scene);
-    material.reflectionTexture = new BABYLON.Texture("images/earth.jpg", scene);
+    material.reflectionTexture = new BABYLON.Texture("images/moon.png", scene);
     material.reflectionTexture.coordinatesMode = BABYLON.Texture.SPHERICAL_MODE;
     lightSphere1.material = material;
 
